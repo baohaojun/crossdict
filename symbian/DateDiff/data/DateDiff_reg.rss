@@ -1,0 +1,27 @@
+/*
+============================================================================
+ Name		: DateDiff.rss
+ Author	  : toolkits.googlecode.com
+ Copyright   : New BSD License
+ Description : This file contains the application registration resource.
+============================================================================
+*/
+
+#include "DateDiff.hrh"
+#include "DateDiff.rls"
+#include <appinfo.rh>
+#include <DateDiff_0xE8735039.rsg>
+
+UID2 KUidAppRegistrationResourceFile
+UID3 _UID3
+
+RESOURCE APP_REGISTRATION_INFO
+	{
+	app_file="DateDiff_0xE8735039";
+	localisable_resource_file =  qtn_loc_resource_file_1;
+	localisable_resource_id = R_LOCALISABLE_APP_INFO;
+
+	embeddability=KAppNotEmbeddable;
+	newfile=KAppDoesNotSupportNewFile;
+	}
+

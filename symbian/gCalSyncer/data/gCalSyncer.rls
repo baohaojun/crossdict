@@ -1,0 +1,70 @@
+/*
+============================================================================
+ Name		: gCalSyncer.rls
+ Author	  : toolkits.googlecode.com
+ Copyright   : New BSD License
+ Description : This is a localisation file for gCalSyncer
+				A .rls file is the one and only place where the logical
+				strings to be localised are defined. 
+============================================================================
+*/
+
+/*
+Copyright 2009 http://code.google.com/p/toolkits/. All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are
+met:
+  * Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  * Redistributions in binary form must reproduce the above
+    copyright notice, this list of conditions and the following
+    disclaimer in the documentation and/or other materials provided
+    with the distribution.
+  * Neither the name of http://code.google.com/p/toolkits/ nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+"AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+//  LOCALISATION STRINGS
+
+// Caption string for app.
+#define qtn_caption_string "gCalSyncer"
+
+#define qtn_welcome_text "欢迎使用gCalSyncer symbian客户端"
+
+// First item in "Options" menu pane
+#define qtn_command_upload "将手机日历上传到gCal"
+
+// Second item in "Options" menu pane
+#define qtn_command_download "将gCal日历下载到手机"
+
+#define qtn_help "帮助"
+
+#define qtn_about "关于"
+
+// Third item in "Options" menu pane
+#define qtn_exit "退出"
+
+// When user requests ECmmdUpload event, text below is shown.
+#define qtn_command_upload_text "Google Calendar Syncer\n将手机日历上传到gCal"
+
+#define qtn_loc_resource_file "\\resource\\apps\\gCalSyncer_0xE9062F6D"
+
+#define qtn_about_dialog_title "About"
+
+#define qtn_about_dialog_text "gCalSyncer Version 1.0.0\n\nAuthor: toolkits.googlecode.com\n\nSupport: toolkits@googlecode.com\n\n(c) New BSD License"
+
+// End of File

@@ -1,0 +1,63 @@
+/*
+============================================================================
+ Name		: gCalSyncer.mmp
+ Author	  : toolkits.googlecode.com
+ Copyright   : New BSD License
+ Description : This is the project specification file for gCalSyncer.
+============================================================================
+*/
+
+
+TARGET			gCalSyncer_0xE9062F6D.exe
+TARGETTYPE		exe
+UID		  0x100039CE 0xE9062F6D
+
+SOURCEPATH		..\src
+SOURCE			gCalSyncer.cpp
+SOURCE			gCalSyncerApplication.cpp
+SOURCE			gCalSyncerAppView.cpp
+SOURCE			gCalSyncerAppUi.cpp
+SOURCE			gCalSyncerDocument.cpp
+
+SOURCEPATH		..\data
+
+START RESOURCE	gCalSyncer.rss
+HEADER
+TARGET gCalSyncer_0xE9062F6D
+TARGETPATH resource\apps
+END //RESOURCE
+
+START RESOURCE	gCalSyncer_reg.rss
+TARGET gCalSyncer_0xE9062F6D_reg
+TARGETPATH 	  \private\10003a3f\apps
+END //RESOURCE
+
+
+
+USERINCLUDE	   ..\inc
+USERINCLUDE    ..\help
+
+SYSTEMINCLUDE	 \epoc32\include
+
+LIBRARY		   euser.lib
+LIBRARY		   apparc.lib
+LIBRARY		   cone.lib
+LIBRARY		   eikcore.lib
+LIBRARY		   avkon.lib
+LIBRARY		   commonengine.lib
+LIBRARY		   efsrv.lib 
+LIBRARY		   estor.lib
+LIBRARY        aknnotify.lib
+LIBRARY        hlplch.lib
+ 
+
+LANG 31
+
+VENDORID	  	  0
+SECUREID		  0xE9062F6D
+CAPABILITY	  	  ReadUserData
+
+#ifdef ENABLE_ABIV2_MODE
+  DEBUGGABLE_UDEBONLY
+#endif
+// End of File

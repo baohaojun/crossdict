@@ -1,0 +1,24 @@
+/*
+ ============================================================================
+ Name		: gCalSyncer.hrh
+ Author	  : toolkits.googlecode.com
+ Copyright   : New BSD License
+ Description : This file contains declarations for constants of gCalSyncer.
+ The file can be included in C++ or resource file.
+ ============================================================================
+ */
+#ifndef __GCALSYNCER_HRH__
+#define __GCALSYNCER_HRH__
+
+#define _UID3 0xE9062F6D
+
+// gCalSyncer enumerate command codes
+enum TgCalSyncerIds
+	{
+	ECmmdUpload = 0x6001, // start value must not be 0
+	ECmmdDownload,
+	EHelp,
+	EAbout
+	};
+
+#endif // __GCALSYNCER_HRH__

@@ -1,0 +1,45 @@
+/*
+============================================================================
+ Name		: DateDiff.rls
+ Author	  : toolkits.googlecode.com
+ Copyright   : New BSD License
+ Description : This is a localisation file for DateDiff
+				A .rls file is the one and only place where the logical
+				strings to be localised are defined. 
+============================================================================
+*/
+
+//  LOCALISATION STRINGS
+
+// Caption string for app.
+#define qtn_caption_string "DateDiff"
+
+// First item in "Options" menu pane
+#define qtn_command_diffdate "日期相差的天数"
+
+// Second item in "Options" menu pane
+#define qtn_command_dateadd "N天后的日期"
+
+#define qtn_about "关于"
+
+// Third item in "Options" menu pane
+#define qtn_exit "退出"
+
+#define qtn_loc_resource_file_1 "\\resource\\apps\\DateDiff_0xE8735039"
+
+#define qtn_about_dialog_title "About"
+
+#define qtn_about_dialog_text "DateDiff Version 1.0.0\n\nAuthor: toolkits.googlecode.com\n\nSupport: toolkits@googlecode.com\n\n(c) New BSD License"
+
+#define str_starday "开始日期"
+
+#define str_endday "结束日期"
+
+#define str_date "日期"
+
+#define str_days "天数"
+
+#define qtn_welcome_text "计算两个日期的相差的天数"
+
+#define qtn_cancel_text "取消"
+// End of File

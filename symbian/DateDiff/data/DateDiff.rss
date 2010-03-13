@@ -1,0 +1,474 @@
+/*
+============================================================================
+ Name		: DateDiff.rss
+ Author	  : toolkits.googlecode.com
+ Copyright   : New BSD License
+ Description : This file contains all the resources for the DateDiff.
+============================================================================
+*/
+
+/*
+Copyright 2009 http://code.google.com/p/toolkits/. All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are
+met:
+  * Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  * Redistributions in binary form must reproduce the above
+    copyright notice, this list of conditions and the following
+    disclaimer in the documentation and/or other materials provided
+    with the distribution.
+  * Neither the name of http://code.google.com/p/toolkits/ nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+"AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+CHARACTER_SET UTF8
+
+//  RESOURCE IDENTIFIER
+NAME DATE	// 4 letter ID
+
+
+//  INCLUDES
+#include <eikon.rh>
+#include <avkon.rsg>
+#include <avkon.rh>
+#include <appinfo.rh>
+#include "DateDiff.hrh"
+#include "DateDiff.rls"
+
+#define AKNEXQUERY_DATE_EDITOR_MIN_DATE KEikTimeMinYear
+#define AKNEXQUERY_DATE_EDITOR_MAX_DATE 2986
+#define AKNEXQUERY_DATE_EDITOR_FLAGS 0
+#define AKNEXQUERY_TIME_EDITOR_MAX_SECOND 59
+#define AKNEXQUERY_DURATION_EDITOR_FLAGS 0
+#define AKNEXQUERY_DURATION_EDITOR_MAX_SECOND 3599
+
+
+//  RESOURCE DEFINITIONS
+// -----------------------------------------------------------------------------
+//
+//	Define the resource file signature
+//	This resource should be empty.
+//
+// -----------------------------------------------------------------------------
+//
+RESOURCE RSS_SIGNATURE
+	{
+	}
+
+// -----------------------------------------------------------------------------
+//
+//	Default Document Name
+//
+// -----------------------------------------------------------------------------
+//
+RESOURCE TBUF r_default_document_name
+	{
+	buf="DATE";
+	}
+
+// -----------------------------------------------------------------------------
+//
+//	Define default menu and CBA key.
+//
+// -----------------------------------------------------------------------------
+//
+RESOURCE EIK_APP_INFO
+	{
+	menubar = r_menubar;
+	cba = R_AVKON_SOFTKEYS_OPTIONS_EXIT;
+	}
+
+
+// -----------------------------------------------------------------------------
+//
+//   r_menubar
+//   Main menubar
+//
+// -----------------------------------------------------------------------------
+//
+RESOURCE MENU_BAR r_menubar
+	{
+	titles =
+		{
+		MENU_TITLE { menu_pane = r_menu; }
+		};
+	}
+
+
+// -----------------------------------------------------------------------------
+//
+//   r_menu
+//   Menu for "Options"
+//
+// -----------------------------------------------------------------------------
+//
+RESOURCE MENU_PANE r_menu
+	{
+	items =
+		{
+		// added the new Options menu command here
+		MENU_ITEM
+				{
+				command = ECommandDiffDate;
+				txt = qtn_command_diffdate;
+				},
+		MENU_ITEM
+				{
+				command = ECommandDateAdd;
+				txt = qtn_command_dateadd;
+				},
+		MENU_ITEM
+				{
+				command = EAbout;
+				txt = qtn_about;
+				},
+		MENU_ITEM
+				{
+				command = EAknSoftkeyExit;
+				txt = qtn_exit;
+				}
+		};
+	}
+
+// -----------------------------------------------------------------------------
+//
+// About dialog resource.
+//
+// -----------------------------------------------------------------------------
+//
+RESOURCE DIALOG r_about_query_dialog
+	{
+	flags = EGeneralQueryFlags | EEikDialogFlagNoBorder | EEikDialogFlagNoShadow;
+	buttons = R_AVKON_SOFTKEYS_OK_EMPTY;
+	items=
+		{
+		DLG_LINE 
+			{
+			type = EAknCtPopupHeadingPane;
+			id = EAknMessageQueryHeaderId;
+			itemflags = EEikDlgItemNonFocusing;
+			control = AVKON_HEADING
+				{
+				};
+			},
+		DLG_LINE
+			{
+			type = EAknCtMessageQuery;
+			id = EAknMessageQueryContentId;
+			control = AVKON_MESSAGE_QUERY
+				{
+				};
+			}
+		};
+	}
+
+
+// -----------------------------------------------------------------------------
+//
+// Resources for messages.
+//
+// -----------------------------------------------------------------------------
+//
+RESOURCE TBUF32 r_caption_string { buf=qtn_caption_string; }
+RESOURCE TBUF32 r_about_dialog_title { buf=qtn_about_dialog_title; }
+RESOURCE TBUF32 r_wlecome_text { buf=qtn_welcome_text; }
+RESOURCE TBUF r_about_dialog_text { buf=qtn_about_dialog_text; }
+RESOURCE TBUF32 R_CANCEL_TEXT { buf=qtn_cancel_text; } 
+// ---------------------------------------------------------------------------- 
+//
+// r_localisable_app_info
+//
+// ---------------------------------------------------------------------------- 
+//
+RESOURCE LOCALISABLE_APP_INFO r_localisable_app_info
+	{
+	short_caption = qtn_caption_string;
+	caption_and_icon = 
+	CAPTION_AND_ICON_INFO
+		{
+		caption = qtn_caption_string;
+
+		number_of_icons = 1;
+		icon_file = "\\resource\\apps\\DateDiff_0xE8735039.mif";
+		};
+	}
+//
+//
+//
+RESOURCE DIALOG r_aknexquery_date_query
+	{
+	flags = EGeneralQueryFlags;
+	buttons = R_AVKON_SOFTKEYS_OK_CANCEL;
+	items = 
+		{
+		DLG_LINE
+			{
+			type = EAknCtMultilineQuery;
+			id = EMultilineFirstLine;
+			control =  AVKON_DATA_QUERY
+				{
+				layout = EMultiDataFirstDateEd;
+				label = str_starday;
+				control = DATE_EDITOR
+					{
+					 minDate = DATE
+					 {
+					 year = AKNEXQUERY_DATE_EDITOR_MIN_DATE;
+					 };
+					 maxDate = DATE
+					 {
+					 year = AKNEXQUERY_DATE_EDITOR_MAX_DATE;
+					 };
+					flags = AKNEXQUERY_DATE_EDITOR_FLAGS;
+					};
+				};
+			},
+		DLG_LINE
+			{
+			type = EAknCtMultilineQuery;
+			id = EMultilineSecondLine;
+			control =  AVKON_DATA_QUERY
+				{
+				layout = EMultiDataSecondDateEd;
+				label = str_endday;
+				control = DATE_EDITOR
+					{
+					 minDate = DATE
+					 {
+					 year = AKNEXQUERY_DATE_EDITOR_MIN_DATE;
+					 };
+					 maxDate = DATE
+					 {
+					 year = AKNEXQUERY_DATE_EDITOR_MAX_DATE;
+					 };
+					flags = AKNEXQUERY_DATE_EDITOR_FLAGS;
+					};
+				};
+			}
+		};
+	}
+
+RESOURCE DIALOG r_date_query
+    {
+    flags = EGeneralQueryFlags;
+    buttons = R_AVKON_SOFTKEYS_OK_CANCEL;
+    items = 
+    {
+            DLG_LINE
+                {
+                type = EAknCtQuery;
+                id = EGeneralQuery;
+                control = AVKON_DATA_QUERY
+                    {
+                    layout = EDateLayout;
+                    label = str_date;
+                    control = DATE_EDITOR
+                        {       
+                        minDate = DATE
+                            {
+                            year = AKNEXQUERY_DATE_EDITOR_MIN_DATE;
+                            };
+                        maxDate = DATE
+                            {
+                            year = AKNEXQUERY_DATE_EDITOR_MAX_DATE;
+                            };
+                        flags = AKNEXQUERY_DATE_EDITOR_FLAGS;
+                        };
+                    };
+                }
+        };
+    }
+
+RESOURCE DIALOG r_number_query
+    {
+    flags = EGeneralQueryFlags;
+    buttons = R_AVKON_SOFTKEYS_OK_CANCEL;
+    items = 
+    {
+            DLG_LINE
+                {
+                type = EAknCtQuery;
+                id = EGeneralQuery;
+                control = AVKON_DATA_QUERY
+                    {
+                    layout = ENumberLayout;
+                    label = str_days;
+                    control = AVKON_INTEGER_EDWIN
+                        {
+                        };
+                    };
+                }
+        };
+    }
+/*
+RESOURCE DIALOG r_date_number_query
+    {
+    flags = EGeneralQueryFlags;
+    buttons = R_AVKON_SOFTKEYS_OK_CANCEL;
+    items = 
+    {
+            DLG_LINE
+                {
+                type = EAknCtMultilineQuery;
+                id = EMultilineFirstLine;
+                control = AVKON_DATA_QUERY
+                    {
+                    layout = EMultiDataFirstDateEd;
+                    label = "Date";
+                    control = DATE_EDITOR
+                        {       
+                        minDate = DATE
+                            {
+                            year = AKNEXQUERY_DATE_EDITOR_MIN_DATE;
+                            };
+                        maxDate = DATE
+                            {
+                            year = AKNEXQUERY_DATE_EDITOR_MAX_DATE;
+                            };
+                        flags = AKNEXQUERY_DATE_EDITOR_FLAGS;
+                        };
+                    };
+                },
+            DLG_LINE
+                {
+                type = EAknCtMultilineQuery;
+                id = EMultilineSecondLine;
+                control = AVKON_DATA_QUERY
+                    {
+                    layout = EMultiDataSecondNumEd;
+                    label = "Days";
+                    control = AVKON_INTEGER_EDWIN
+                        {
+                        };
+                    };
+                }
+        };
+    }
+
+RESOURCE DIALOG r_aknexquery_multi_line_date_and_duration_layout
+    {
+    flags = EGeneralQueryFlags;
+    buttons = R_AVKON_SOFTKEYS_OK_CANCEL;
+    items =
+        {
+        DLG_LINE
+            {
+            type = EAknCtMultilineQuery;
+            id = EMultilineFirstLine;
+            control = AVKON_DATA_QUERY
+                {
+                layout = EMultiDataFirstDateEd;
+                label = STRING_r;
+                control = DATE_EDITOR
+                    {
+                    minDate = DATE
+                        {
+                        year = AKNEXQUERY_DATE_EDITOR_MIN_DATE;
+                        };
+                    maxDate = DATE
+                        {
+                        year = AKNEXQUERY_DATE_EDITOR_MAX_DATE;
+                        };
+                    flags = AKNEXQUERY_DATE_EDITOR_FLAGS;
+                    };
+                };
+            },
+        DLG_LINE
+            {
+            type = EAknCtMultilineQuery;
+            id = EMultilineSecondLine;
+            control = AVKON_DATA_QUERY
+                {
+                layout = EMultiDataSecondDurEd;
+                label = STRING_r;
+                control = DURATION_EDITOR
+                    {
+                    minDuration = DURATION
+                        {
+                        };
+                    maxDuration = DURATION
+                        {
+                        seconds = AKNEXQUERY_DURATION_EDITOR_MAX_SECOND;
+                        };
+                    flags = AKNEXQUERY_DURATION_EDITOR_FLAGS;
+                    };
+                };
+            }
+        };
+    }
+
+RESOURCE DIALOG r_date_time_query
+	{
+	flags = EGeneralQueryFlags;
+	buttons = R_AVKON_SOFTKEYS_OK_CANCEL;
+	items = 
+	{
+			DLG_LINE
+				{
+				type = EAknCtMultilineQuery;
+				id = EMultilineFirstLine;
+				control = AVKON_DATA_QUERY
+					{
+					layout = EMultiDataFirstDateEd;
+					label = "Date";
+					control = DATE_EDITOR
+						{       
+						minDate = DATE
+							{
+							year = 2006;
+							};
+						maxDate = DATE
+							{
+							year = 2599;
+							};
+						flags = 0;
+						};
+					};
+				},
+			DLG_LINE
+				{
+				type = EAknCtMultilineQuery;
+				id = EMultilineSecondLine;
+				control = AVKON_DATA_QUERY
+					{
+					layout = EMultiDataSecondTimeEd;
+					label = "Time";
+					control = TIME_EDITOR
+						{
+						minTime = TIME
+							{
+							second = 0;
+							minute = 0;
+							hour = 0;
+							};
+						maxTime = TIME
+							{
+							second = 59;
+							minute = 59;
+							hour = 23;
+							};
+						flags = EEikTimeWithoutSecondsField |
+								EEikTimeForce24HourFormat;
+						};
+					};
+				}
+		};
+	}
+*/
+
+// End of File
