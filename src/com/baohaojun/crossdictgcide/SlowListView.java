@@ -1,4 +1,4 @@
-package com.baohaojun.crossdict;
+package com.baohaojun.crossdictgcide;
 import android.app.Activity;
 import android.widget.BaseAdapter;
 import android.os.Bundle;

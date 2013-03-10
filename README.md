@@ -1,7 +1,7 @@
 
 # It is free
 
-This is an Android dictionary App. You can visit [Google Play](https://play.google.com/store/apps/details?id=com.baohaojun.crossdict) to
+This is an Android dictionary App. You can visit [Google Play](https://play.google.com/store/apps/details?id=com.baohaojun.crossdictgcide) to
 install it, or if your Android phone can't use Google Play, then you
 can download it from [Sina Vdisk](http://vdisk.weibo.com/s/skNbH) (need sign up).
 
@@ -14,7 +14,7 @@ in the [dico](http://puszcza.gnu.org.ua/software/dico/) project and used it to e
 
 But you can switch the dictionary data if you have access to another
 one. For example, the American Heritage Dictionary's data can be used,
-if it can be changed to CrossDict's data format.
+if it can be changed to CrossDictGcide's data format.
 
 # It is geeky
 
@@ -23,7 +23,7 @@ I have made some features that I think every dictionary should have, for e.g.,
 -   Search the definitions
     
     For instance, you can search which words has used the word "hello"
-    in their definition. This is why it is named CrossDict.
+    in their definition. This is why it is named CrossDictGcide.
 
 -   Search with regexp
     
@@ -36,7 +36,7 @@ I have made some features that I think every dictionary should have, for e.g.,
     While in the dictionary, you can long press on a word, and a pop-up
     menu will show, which allows you to check the various things about
     this word. Thank [this project on github](https://github.com/btate/BTAndroidWebViewSelection) for this feature, and if
-    you haven't noticed, the CrossDict project is a [fork](https://github.com/btate/BTAndroidWebViewSelection/network) of that one.
+    you haven't noticed, the CrossDictGcide project is a [fork](https://github.com/btate/BTAndroidWebViewSelection/network) of that one.
 
 # It will be geekier
 
@@ -49,7 +49,7 @@ I am working on these features:
 -   Support word capture/history better
     
     Using the social sharing feature that is built in Android, another
-    App (such as fbreader) can "share" a word with CrossDict, which is
+    App (such as fbreader) can "share" a word with CrossDictGcide, which is
     of course meant to look that word up or capture it for later study.
 
 -   Separate the dictionary data with the App
@@ -75,5 +75,5 @@ a look of it at [here](http://baohaojun.github.com/coding-android-java-in-emacs-
 
 # Please support
 
-If you used and liked CrossDict and want to support my work on it,
+If you used and liked CrossDictGcide and want to support my work on it,
 please click [here](http://baohaojun.github.com/donate.html) to donate.

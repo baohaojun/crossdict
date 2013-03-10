@@ -42,13 +42,13 @@
       android:orientation="horizontal" >
     
     <view
-	class="com.baohaojun.crossdict.SlowListView"
+	class="com.baohaojun.crossdictgcide.SlowListView"
 	android:id="@+id/nearby_dict_entries"
         android:layout_height="match_parent"
         android:layout_width="0dip"
 	android:layout_weight="0.2" />
     <view 
-	class="com.baohaojun.crossdict.BTWebView"
+	class="com.baohaojun.crossdictgcide.BTWebView"
 	android:layout_width="0dip"
 	android:layout_weight="0.8"
 	android:layout_height="match_parent" 

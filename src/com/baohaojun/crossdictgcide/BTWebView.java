@@ -1,4 +1,4 @@
-package com.baohaojun.crossdict;
+package com.baohaojun.crossdictgcide;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -95,7 +95,7 @@ public class BTWebView extends WebView implements TextSelectionJavascriptInterfa
     /** Last touched selection handle. */
     private int mLastTouchedSelectionHandle = -1;
 
-    private CrossDictActivity mActivity;
+    private CrossDictGcideActivity mActivity;
 
     private String mBaseUrl = "file:///";
 
@@ -104,7 +104,7 @@ public class BTWebView extends WebView implements TextSelectionJavascriptInterfa
 	Log.e("bhj", String.format("mBaseUrl is set to %s\n", mBaseUrl));
     }
 
-    void setActivity(CrossDictActivity activity) {
+    void setActivity(CrossDictGcideActivity activity) {
 	mActivity = activity;
     }
 

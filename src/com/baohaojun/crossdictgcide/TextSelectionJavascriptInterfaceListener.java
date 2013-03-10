@@ -1,4 +1,4 @@
-package com.baohaojun.crossdict;
+package com.baohaojun.crossdictgcide;
 
 public interface TextSelectionJavascriptInterfaceListener {
 

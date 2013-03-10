@@ -1,4 +1,4 @@
-package com.baohaojun.crossdict;
+package com.baohaojun.crossdictgcide;
 
 import android.content.Context;
 import android.util.Log;

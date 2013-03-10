@@ -1,4 +1,4 @@
-package com.baohaojun.crossdict;
+package com.baohaojun.crossdictgcide;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -43,7 +43,7 @@ import android.os.AsyncTask;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 
-public class CrossDictActivity extends Activity {
+public class CrossDictGcideActivity extends Activity {
     /** Called when the activity is first created. */
     private EditText mEdit; 
     private SlowListView mListView;
@@ -102,9 +102,9 @@ public class CrossDictActivity extends Activity {
 	
 	@Override
         protected void onPreExecute() {
-	    CrossDictActivity.this.runOnUiThread(new Runnable() {
+	    CrossDictGcideActivity.this.runOnUiThread(new Runnable() {
 		    public void run() {
-			CrossDictActivity.this.showDialog(DIALOG_COPY_FILES);
+			CrossDictGcideActivity.this.showDialog(DIALOG_COPY_FILES);
 		    }
 		});	    
 	}
@@ -136,12 +136,12 @@ public class CrossDictActivity extends Activity {
 		Log.e("bhj", String.format("Error creating files\n"), e);
 	    } finally {
 		if (checkDictFiles() != null) {
-		    new AlertDialog.Builder(CrossDictActivity.this)
+		    new AlertDialog.Builder(CrossDictGcideActivity.this)
 			.setTitle("Error!")
 			.setMessage(String.format("Failed to create dictionary file '%s', will now exit.", checkDictFiles()))
 			.setPositiveButton("OK", new DialogInterface.OnClickListener() {
 				public void onClick(DialogInterface dialog, int whichButton) {
-				    CrossDictActivity.this.finish();
+				    CrossDictGcideActivity.this.finish();
 				}
 			    })
 			.create().show();
@@ -151,7 +151,7 @@ public class CrossDictActivity extends Activity {
 
 	    if (mCopyFileDialog != null) {
 		mCopyFileDialog.cancel();
-		CrossDictActivity.this.runOnUiThread(new Runnable() {
+		CrossDictGcideActivity.this.runOnUiThread(new Runnable() {
 			public void run() {
 			    continueLoading();
 			}
@@ -222,7 +222,7 @@ public class CrossDictActivity extends Activity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, 
 			     WindowManager.LayoutParams.FLAG_FULLSCREEN);
 	
-	mWorkingDir = Environment.getExternalStoragePublicDirectory("crossdict/ahd");
+	mWorkingDir = Environment.getExternalStoragePublicDirectory("crossdictgcide/ahd");
 
         setContentView(R.layout.main);
         mListView = (SlowListView) findViewById(R.id.nearby_dict_entries);
@@ -273,7 +273,7 @@ public class CrossDictActivity extends Activity {
 	mWebView.setBaseUrlWithDir(mWorkingDir.toString());
 	mWebView.setDict(mDict);
 
-	mListView.createAndSetAdapter(CrossDictActivity.this, mDict);
+	mListView.createAndSetAdapter(CrossDictGcideActivity.this, mDict);
 
 	Intent intent = getIntent();
 	String subject = intent
@@ -398,7 +398,7 @@ public class CrossDictActivity extends Activity {
 	    return true;
 	}
 	if (keyCode == KeyEvent.KEYCODE_BACK) {
-	    new AlertDialog.Builder(CrossDictActivity.this)
+	    new AlertDialog.Builder(CrossDictGcideActivity.this)
 		.setTitle("Exit?")
 		.setMessage("Please confirm that you want to exit.")
 		.setPositiveButton("OK", new DialogInterface.OnClickListener() {
@@ -420,7 +420,7 @@ public class CrossDictActivity extends Activity {
 			    } catch (Exception e) {
 				Log.e("bhj", "save mCurrentWord failed", e);
 			    }
-			    CrossDictActivity.this.finish();
+			    CrossDictGcideActivity.this.finish();
 			}
 		    })
 		.setNegativeButton("Cancel", null)
@@ -460,7 +460,7 @@ public class CrossDictActivity extends Activity {
 	}
 	int idx = mUsageDict.getWordIdx(word);
 	if (word.compareToIgnoreCase(mUsageDict.getWord(idx)) != 0) {
-	    new AlertDialog.Builder(CrossDictActivity.this)
+	    new AlertDialog.Builder(CrossDictGcideActivity.this)
 		.setTitle("Not a definer!")
 		.setMessage(String.format("%s is not a defining word, this maybe because it is too common", word))
 		.setPositiveButton("OK", null)
@@ -535,7 +535,7 @@ public class CrossDictActivity extends Activity {
 	};
     View.OnClickListener mListListener = new OnClickListener() {
 	    public void onClick(View button) {
-		PopupMenu popup = new PopupMenu(CrossDictActivity.this, button);
+		PopupMenu popup = new PopupMenu(CrossDictGcideActivity.this, button);
 		popup.getMenuInflater().inflate(R.menu.popup, popup.getMenu());
 
 		popup.setOnMenuItemClickListener(mMenuItemClickListener);
