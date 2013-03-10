@@ -15,4 +15,4 @@ gen
 local.properties
 *.jar
 .classpath
-assets
+
