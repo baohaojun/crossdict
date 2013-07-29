@@ -2,8 +2,6 @@ package com.baohaojun.crossdict;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.Dialog;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -575,3 +573,11 @@ public class CrossDictActivity extends Activity {
         return list.toArray(new String[0]);
     }
 }
+
+// 1. show the class hierarchy
+// 2. delete some imports, then re-import them
+// 3. resolve type for s where there is a String s;
+// 4. complete a method for s.
+// 5. override a method declared/defined in a super class
+// 6. as a bonus, demo skeleton-complete.el
+// 7. demo ajoke using jdk (with .jar as gtags backend)
